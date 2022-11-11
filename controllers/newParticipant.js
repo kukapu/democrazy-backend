@@ -8,9 +8,7 @@ const getParticipants = async( req, res = response ) => {
     try {
         
         const { newParticipant } = req.body
-        console.log( newParticipant )
         const user = await User.findOne({ name: newParticipant })
-        console.log( user )
 
 
         res.status(202).json({

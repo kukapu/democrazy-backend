@@ -8,7 +8,7 @@ const { fieldsValidator } = require('../middlewares/fieldsValidator')
 const router = Router()
 const { validarJWT } = require('../middlewares/validarJWT')
 
-const { newUser, loginUser, renewToken, getParticipants } = require('../controllers/auth')
+const { newUser, loginUser, renewToken } = require('../controllers/auth')
 
 
 

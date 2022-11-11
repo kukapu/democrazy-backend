@@ -9,13 +9,11 @@ const { fieldsValidator } = require('../middlewares/fieldsValidator')
 const router = Router()
 const { validarJWT } = require('../middlewares/validarJWT')
 
-const { getMyVotationsIds, getInfoVotations, getInfoVotationsFromUser, saveVotation, deleteVotation, addVotation, createVotation } = require('../controllers/democracy')
+const { getMyVotationsIds, getInfoVotations, getInfoVotationsFromUser, deleteVotation, addVotation, createVotation } = require('../controllers/democracy')
 
 
 router.post('/createVotation',
     [
-        // validarJWT,
-        // check( 'userWannaRate', 'Debes introducir numero entre 0 y 10').isNumeric({ min:0, max: 10}),
     ],
     createVotation
 )

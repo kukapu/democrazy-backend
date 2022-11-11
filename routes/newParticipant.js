@@ -9,7 +9,6 @@ const { fieldsValidator } = require('../middlewares/fieldsValidator')
 const router = Router()
 const { validarJWT } = require('../middlewares/validarJWT')
 
-const { saveCompare } = require('../controllers/democracy')
 const { getParticipants } = require('../controllers/newParticipant')
 
 

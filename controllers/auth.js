@@ -28,13 +28,11 @@ const newUser = async( req, res = response ) => {
 
         const user = new User( req.body )
 
-        //ENCRYPT   
         const salt = bcrypt.genSaltSync()
         user.password = bcrypt.hashSync( password, salt ) 
 
         await user.save()
 
-        //TOKEN
         const token = await generarJWT( user.id, user.name )
 
         res.status(201).json({
@@ -78,7 +76,6 @@ const loginUser = async( req, res = response ) => {
             })
         }
 
-        // TOKEN
         const token = await generarJWT( user.id, user.name )
 
         res.json({
