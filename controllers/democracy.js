@@ -106,7 +106,7 @@ const getMyVotationsIds = async ( req, res = response ) => {
 const getInfoVotationsFromUser = async ( req, res = response ) => {
 
     const { uid } = req.body
-
+    const user = await User.findOne({ uid: uid })
 
 
     const infoVotations = await Promise.all(
