@@ -9,7 +9,7 @@ const { fieldsValidator } = require('../middlewares/fieldsValidator')
 const router = Router()
 const { validarJWT } = require('../middlewares/validarJWT')
 
-const { getParticipants } = require('../controllers/newParticipant')
+const { getParticipants, getAllParticipants } = require('../controllers/newParticipant')
 
 
 
@@ -17,6 +17,12 @@ router.post(
     '/',
     [],
     getParticipants )
+
+router.post(
+    '/getAllParticipants',
+    [],
+    getAllParticipants
+)
 
 
 

@@ -28,9 +28,36 @@ const getParticipants = async( req, res = response ) => {
     
 }
 
+const getAllParticipants = async( req, res = response ) => {
+    
+
+    try {
+        
+        const allUsers = await User.find()
+
+        const allUsersNames = allUsers.map( user => user.name )
+
+
+        res.status(202).json({
+            ok: true,
+            allUsersNames,
+        })
+    
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            ok: false,
+            msg: 'Contactar administrador'
+        })
+    }
+    
+}
+
 
 
 module.exports = {
     getParticipants,
+    getAllParticipants,
     
 }

@@ -34,7 +34,6 @@ router.post('/delete',
 
 router.post('/results',
     [
-        // fieldsValidator
     ],
     getMyVotationsIds
 )
@@ -48,7 +47,6 @@ router.post('/results/info',
 
 router.post('/votations',
     [
-        // fieldsValidator
     ],
     getInfoVotations
 )
