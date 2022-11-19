@@ -19,6 +19,10 @@ const UserSchema = Schema({
     uidParticipants: {
         type: Array,
         require: true
+    },
+    result: {
+        type: Array,
+        require: false
     }
 })
 
