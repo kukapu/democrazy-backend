@@ -1,5 +1,6 @@
 const { response } = require('express')
 const { compareResult } = require('../helpers/compareResult')
+const { majorityResults } = require('../helpers/majorityPonderationResults')
 const { SaveVotationInUser } = require('../helpers/SaveVotationInUser')
 const Compare = require('../models/Compare')
 const User = require('../models/User')
@@ -38,11 +39,18 @@ const addVotation = async(  req, res = response ) => {
 
         const compare = await Compare.findById(votationId)
 
-        if ( Object.keys(compare.votation).length === compare.uidParticipants.length ){
-             const result = compareResult(compare)
-             compare.result = result
-             compare.save()
-             return
+        if ( compare.type === 'compare' && Object.keys(compare.votation).length === compare.uidParticipants.length ){
+            const result = compareResult(compare)
+            compare.result = result
+            compare.save()
+            return
+        }
+
+        if( compare.type === 'majority' && Object.keys(compare.votation).length === (compare.uidParticipants.length + 2) ){
+            const result = majorityResults(compare)
+            compare.result = result
+            compare.save()
+            return
         }
 
         compare.votation = votation
